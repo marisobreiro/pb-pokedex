@@ -2,7 +2,6 @@ import React from "react";
 
 import pokeballCardImage from "../../global/assets/Pokeball.png";
 import dotsCardImage from "../../global/assets/Pattern.png";
-import { NavigationScreenProps } from "../../navigation/types";
 
 import * as S from "./styles";
 import PokemonTypeBadge from "../PokemonTypeBadge";
