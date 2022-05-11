@@ -8,11 +8,11 @@ import PokemonTypeBadge from "../PokemonTypeBadge";
 
 type PokemonCardProps = {
     id: number,
-    name: string,
-    type: string
+    name: string
 }
 
 export default function PokemonCard({id, name}: PokemonCardProps) {
+
     return (
         <S.Card activeOpacity={0.9}>
             <S.CardLeft>

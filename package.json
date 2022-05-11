@@ -5,12 +5,14 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "backend": "json-server --watch pokemon.json --port 3300"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.10",
     "@react-navigation/native-stack": "^6.6.2",
     "@react-navigation/stack": "^6.2.1",
+    "axios": "^0.27.2",
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
     "lottie-react-native": "^5.0.1",
