@@ -2,19 +2,21 @@ import React from "react";
 
 import pokeballCardImage from "../../global/assets/Pokeball.png";
 import dotsCardImage from "../../global/assets/Pattern.png";
+import { NavigationScreenProps } from "../../navigation/types";
 
 import * as S from "./styles";
 import PokemonTypeBadge from "../PokemonTypeBadge";
 
 type PokemonCardProps = {
     id: number,
-    name: string
+    name: string,
+    handleNavigation: any
 }
 
-export default function PokemonCard({id, name}: PokemonCardProps) {
+export default function PokemonCard({id, name, handleNavigation}: PokemonCardProps) {
 
     return (
-        <S.Card activeOpacity={0.9}>
+        <S.Card activeOpacity={0.9} onPress={handleNavigation}>
             <S.CardLeft>
                 <S.CardDotsBackgroundImage source={dotsCardImage} />
 

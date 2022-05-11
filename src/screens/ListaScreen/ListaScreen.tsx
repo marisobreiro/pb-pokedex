@@ -1,25 +1,20 @@
 import React from "react";
-import { FlatList } from "react-native";
+import { FlatList, Button } from "react-native";
+import { NavigationScreenProps } from "../../navigation/types";
+
+import { Link } from "@react-navigation/native";
 
 import pokeballBackgroundImage from "../../global/assets/Pokeball-bg-half.png";
 
 import * as S from "./ListaScreen.styles";
 import PokemonCard from "../../components/PokemonCard";
 
-export function ListaScreen() {
+export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
+    const { navigation }:any = props;
 
-    const data = [
-        {
-            "id": 1,
-            "name": "Bulbasaur",
-            "type": ["Grass", "Poison"],
-        },
-        {
-            "id": 2,
-            "name": "Ivysaur",
-            "type": ["Grass", "Poison"],
-        }
-    ]
+    function handleNavigation() {
+        navigation.navigate("DetalhesScreen");
+    }
     
     return (
         <S.Container>
@@ -30,12 +25,11 @@ export function ListaScreen() {
                 <S.Paragraph>Encontre todos os pokémons em um só lugar.</S.Paragraph>
 
                 <S.Content>
-                    <PokemonCard 
-                        id={39} 
-                        name={'Jiglypuff'}
-                    />
-                    <PokemonCard id={25} name="Pikachu" />
-                    <PokemonCard id={54} name="Psyduck" />
+                        <PokemonCard 
+                            id={39} 
+                            name={'Jiglypuff'}
+                            handleNavigation={handleNavigation}
+                            />
                 </S.Content>
             </S.ScrollView>
         </S.Container>
