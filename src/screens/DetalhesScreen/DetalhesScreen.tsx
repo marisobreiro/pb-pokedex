@@ -1,15 +1,25 @@
 import React from "react";
 import { View } from "react-native";
+import { NavigationScreenProps } from "../../navigation/types";
+import { useNavigation } from "@react-navigation/native";
 
+
+import PokemonStatus from "../../components/PokemonStatus";
+import PokemonTypeBadge from "../../components/PokemonTypeBadge";
+
+import * as S from "./DetalhesScreen.styles";
 import pokeballBackgroundImage from "../../global/assets/Pokeball-bg.png";
 import dotsCardImage from "../../global/assets/Pattern.png";
 import backImage from "../../global/assets/Back.png";
 
-import * as S from "./DetalhesScreen.styles";
-import PokemonStatus from "../../components/PokemonStatus";
-import PokemonTypeBadge from "../../components/PokemonTypeBadge";
+export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">, {pokeData}) {
 
-export function DetalhesScreen() {
+    const {navigation} = props;
+
+    function handleNavigation() {
+        navigation.navigate("ListaScreen");
+    }
+
     return (
         <S.Container>
             <S.Header>
@@ -17,7 +27,7 @@ export function DetalhesScreen() {
 
                 <S.DotsBackgroundImage source={dotsCardImage} />
 
-                <S.GoBackButton>
+                <S.GoBackButton onPress={handleNavigation}>
                     <S.GoBackImage source={backImage} />
                 </S.GoBackButton>
 
@@ -29,18 +39,18 @@ export function DetalhesScreen() {
                     }}
                 >
                     <View>
-                        <S.PokemonName>Bulbasaur</S.PokemonName>
+                        <S.PokemonName>{pokeData.name}</S.PokemonName>
                         <S.TypeList>
-                            <PokemonTypeBadge type="Grass"/>
+                            <PokemonTypeBadge type="Fairy"/>
                             <PokemonTypeBadge type="Poison" />
                         </S.TypeList>
                     </View>
-                    <S.PokemonNumber>#001</S.PokemonNumber>
+                    <S.PokemonNumber>{pokeData.id}</S.PokemonNumber>
                 </View>
 
                 <S.PokemonImage
                     source={{
-                        uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png`,
+                        uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png`,
                     }}
                 />
             </S.Header>

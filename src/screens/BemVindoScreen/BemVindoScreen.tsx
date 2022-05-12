@@ -8,7 +8,7 @@ import * as S from "./BemVindoScreen.styles";
 
 export function BemVindoScreen(props: NavigationScreenProps<"BemVindoScreen">) {
 
-    const { navigation } = props;
+    const { navigation }: any = props;
 
     function handleNavigation() {
         navigation.navigate("ListaScreen");

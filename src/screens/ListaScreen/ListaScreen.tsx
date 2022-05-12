@@ -1,19 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, Button } from "react-native";
+import axios from "axios";
+
 import { NavigationScreenProps } from "../../navigation/types";
-
-import { Link } from "@react-navigation/native";
-
-import pokeballBackgroundImage from "../../global/assets/Pokeball-bg-half.png";
-
-import * as S from "./ListaScreen.styles";
 import PokemonCard from "../../components/PokemonCard";
 
+import * as S from "./ListaScreen.styles";
+import pokeballBackgroundImage from "../../global/assets/Pokeball-bg-half.png";
+
 export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
-    const { navigation }:any = props;
+
+    // Obtendo dados da API
+    const [pokemons, setPokemons] = useState([]);
+    const [pokemonId, setPokemonId] = useState('');
+
+    const url: string = 'http://localhost:3300/pokemons';
+
+    useEffect(() => {
+        const getPokemons = async () => {
+            const response = await axios.get(url);
+            setPokemons(response.data);
+            setPokemonId(response.data.id)
+        };
+        getPokemons();
+    }, []);
+
+    // Navegação entre páginas
+    const {navigation} : any = props;
 
     function handleNavigation() {
-        navigation.navigate("DetalhesScreen");
+        navigation.navigate('DetalhesScreen', {
+            paramKey: pokemonId
+        });
     }
     
     return (
@@ -25,13 +43,18 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
                 <S.Paragraph>Encontre todos os pokémons em um só lugar.</S.Paragraph>
 
                 <S.Content>
-                        <PokemonCard 
-                            id={39} 
-                            name={'Jiglypuff'}
-                            handleNavigation={handleNavigation}
-                            />
+                    {pokemons.length > 0 &&
+                        pokemons.map((pokemon)  => (
+                            <PokemonCard 
+                            id={pokemon.id} 
+                            name={pokemon.name}
+                            pokeData={pokemon}
+                            handleNavigation={handleNavigation} />
+                    ))}
+
                 </S.Content>
             </S.ScrollView>
         </S.Container>
     );
 }
+
