@@ -5,6 +5,7 @@ export const Container = styled.View`
     background: ${props.theme.colors.background.white};
     flex: 1;
     position: relative;
+    padding: 0 20px;
   `}
 `;
 

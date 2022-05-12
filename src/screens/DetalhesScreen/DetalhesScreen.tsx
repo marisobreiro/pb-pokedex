@@ -12,7 +12,7 @@ import pokeballBackgroundImage from "../../global/assets/Pokeball-bg.png";
 import dotsCardImage from "../../global/assets/Pattern.png";
 import backImage from "../../global/assets/Back.png";
 
-export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">, {pokeData}) {
+export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
 
     const {navigation} = props;
 
@@ -39,13 +39,13 @@ export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">, {
                     }}
                 >
                     <View>
-                        <S.PokemonName>{pokeData.name}</S.PokemonName>
+                        <S.PokemonName>teste</S.PokemonName>
                         <S.TypeList>
                             <PokemonTypeBadge type="Fairy"/>
                             <PokemonTypeBadge type="Poison" />
                         </S.TypeList>
                     </View>
-                    <S.PokemonNumber>{pokeData.id}</S.PokemonNumber>
+                    <S.PokemonNumber>1</S.PokemonNumber>
                 </View>
 
                 <S.PokemonImage
