@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FlatList, Button } from "react-native";
+import { FlatList} from "react-native";
 import axios from "axios";
 
 import { NavigationScreenProps } from "../../navigation/types";
 import PokemonCard from "../../components/PokemonCard";
+import pokeballBackgroundImage from "../../global/assets/Pokeball-bg-half.png";
 
 import * as S from "./ListaScreen.styles";
-import pokeballBackgroundImage from "../../global/assets/Pokeball-bg-half.png";
 
 export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
 
@@ -36,6 +36,7 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
 
             <S.Title>Pokédex</S.Title>
             <S.Paragraph>Encontre todos os pokémons em um só lugar.</S.Paragraph>
+
             <FlatList 
                 data={pokemons}
                 initialNumToRender={4}
@@ -43,6 +44,8 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
                     <PokemonCard 
                         id={item.id} 
                         name={item.name}
+                        type={item.type[0]}
+                        typeTwo={item.type[1]}
                         handleNavigation={handleNavigation} />
                 )}
             />
