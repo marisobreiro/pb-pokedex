@@ -26,8 +26,10 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
     // Navegação entre páginas
     const {navigation} : any = props;
 
-    function handleNavigation(): void {
-        navigation.navigate('DetalhesScreen')
+    function handleNavigation(id: any): void {
+        navigation.navigate('DetalhesScreen', {
+            id: id
+        });
     }
 
     return (
@@ -46,7 +48,8 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
                         name={item.name}
                         type={item.type[0]}
                         typeTwo={item.type[1]}
-                        handleNavigation={handleNavigation} />
+                        handleNavigation={() => handleNavigation(item.id)}
+                        />
                 )}
             />
         </S.Container>

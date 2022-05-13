@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
+import axios from "axios";
 import { NavigationScreenProps } from "../../navigation/types";
-import { useNavigation } from "@react-navigation/native";
-
 
 import PokemonStatus from "../../components/PokemonStatus";
 import PokemonTypeBadge from "../../components/PokemonTypeBadge";
@@ -14,9 +13,26 @@ import backImage from "../../global/assets/Back.png";
 
 export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
 
-    const {navigation} = props;
+    const {navigation}: any = props;
+    const pokemonId: number = props.route.params.id;
+    const pokemonData: any = props.route.params.item;
 
-    function handleNavigation() {
+    const url: string = 'http://localhost:3300/pokemons';
+
+    const [pokemon, setPokemon] = useState([]);
+
+    // Obtendo dados do pokemon selecionado
+    useEffect(() => {
+        const getPokemon = async () => {
+            const response = await axios.get(`${url}/${pokemonId}`);
+            setPokemon(response.data);
+            console.log(response.data)
+        };
+        getPokemon();
+    }, []);
+
+    // Navegação entre telas - Back to ListaScreen
+    function handleNavigation(): void {
         navigation.navigate("ListaScreen");
     }
 
@@ -39,18 +55,18 @@ export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
                     }}
                 >
                     <View>
-                        <S.PokemonName>teste</S.PokemonName>
+                        <S.PokemonName>{pokemon.name}</S.PokemonName>
                         <S.TypeList>
                             <PokemonTypeBadge type="Fairy"/>
                             <PokemonTypeBadge type="Poison" />
                         </S.TypeList>
                     </View>
-                    <S.PokemonNumber>1</S.PokemonNumber>
+                    <S.PokemonNumber>#{[pokemon.id].toString().padStart(3, "0")}</S.PokemonNumber>
                 </View>
 
                 <S.PokemonImage
                     source={{
-                        uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png`,
+                        uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,
                     }}
                 />
             </S.Header>
@@ -58,6 +74,10 @@ export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
             <S.Content>
                 <S.ScrollView>
                 <S.Paragraph>Status</S.Paragraph>
+
+                    {/* {pokemonData.map((item) => {
+                        <PokemonStatus type="test" value={item.base.HP} />
+                    })} */}
 
                     <PokemonStatus type="HP" value={45}/>
                     <PokemonStatus type="Attack" value={49}/>
