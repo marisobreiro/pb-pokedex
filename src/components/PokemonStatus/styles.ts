@@ -1,4 +1,9 @@
 import styled, { css } from "styled-components/native";
+import theme from "../../global/styles/theme";
+
+type PokemonStatusStyleProps = {
+    style: keyof typeof theme.colors.type
+}
 
 export const Status = styled.View`
   flex-direction: row;
@@ -37,7 +42,7 @@ export const PercentBar = styled.ScrollView`
   margin-top: 10px;
 `;
 
-export const Percent = styled.ScrollView`
+export const Percent = styled.ScrollView<PokemonStatusStyleProps>`
   ${(props) => css`
     background: ${props.theme.colors.type.normal};
     width: 50%;

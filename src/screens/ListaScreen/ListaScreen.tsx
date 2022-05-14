@@ -4,22 +4,16 @@ import { FlatList} from "react-native";
 import { NavigationScreenProps } from "../../navigation/types";
 import PokemonCard from "../../components/PokemonCard";
 import pokeballBackgroundImage from "../../global/assets/Pokeball-bg-half.png";
-import { api } from "../../api";
+import { api } from "../../services/api";
 
 import * as S from "./ListaScreen.styles";
+import { PokemonsDataProps } from "../../@types";
 
 export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
 
-    // Tipagem dos dados do Pokemon
-    type PokemonsDataProps = {
-        id: number,
-        name: string,
-        type: any
-    }
-
-    // Obtendo os Pokemons via API - json-server
     const [pokemons, setPokemons] = useState<PokemonsDataProps[]>([]);
 
+     // Obtendo os Pokemons via API - json-serve
     useEffect(() => {
         async function getPokemons() {
             const response = await api.get('pokemons');
@@ -28,7 +22,7 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
         getPokemons();
     }, []);
 
-    // Navegação entre páginas
+    // Navegação entre páginas - Go to Detalhes Screen
     const {navigation} : any = props;
 
     function handleNavigation(id: number): void {
@@ -53,8 +47,6 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
                         id={item.id} 
                         name={item.name}
                         type={item.type}
-                        // type={item.type[0]}
-                        // typeTwo={item.type[1]}
                         handleNavigation={() => handleNavigation(item.id)}
                         />
                 )}

@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { View } from "react-native";
-import axios from "axios";
 import { NavigationScreenProps } from "../../navigation/types";
 
+// Services e Types
+import { api } from "../../services/api";
+import { PokemonDetailsProps } from "../../@types";
+
+// Components
 import PokemonStatus from "../../components/PokemonStatus";
 import PokemonTypeBadge from "../../components/PokemonTypeBadge";
 
+// Style e imagens
 import * as S from "./DetalhesScreen.styles";
 import pokeballBackgroundImage from "../../global/assets/Pokeball-bg.png";
 import dotsCardImage from "../../global/assets/Pattern.png";
@@ -13,24 +18,29 @@ import backImage from "../../global/assets/Back.png";
 
 export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
 
-    const {navigation}: any = props;
+    const { navigation }: any = props;
     const pokemonId: number = props.route.params.id;
 
-    const url: string = 'http://localhost:3300/pokemons';
-
-    const [pokemon, setPokemon] = useState<any>([]);
+    const [ total, setTotal] = useState(0);
+    const [ pokemon, setPokemon ] = useState<PokemonDetailsProps>({base:{}});
 
     // Obtendo dados do pokemon selecionado
     useEffect(() => {
-        const getPokemon = async () => {
-            const response = await axios.get(`${url}/${pokemonId}`);
+        async function getPokemon() {
+            const response = await api.get(`pokemons/${pokemonId}`);
             setPokemon(response.data);
-            console.log(response.data)
         };
         getPokemon();
     }, []);
 
-    // Navegação entre telas - Back to ListaScreen
+    // Obtendo a soma total do Status do Pokemon
+    useEffect (() => {
+        setTotal(
+            (pokemon.base.HP + pokemon.base.Speed + pokemon.base.Attack + pokemon.base['Sp. Attack'] + pokemon.base['Sp. Defense'])
+        )
+    })
+
+    // Navegação - Back to ListaScreen
     function handleNavigation(): void {
         navigation.navigate("ListaScreen");
     }
@@ -38,7 +48,7 @@ export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
     return (
         <S.Container>
             <S.Header>
-                <S.ContainerBackgroundImage source={pokeballBackgroundImage} />
+                <S.ContainerBackgroundImage source={pokeballBackgroundImage}/>
 
                 <S.DotsBackgroundImage source={dotsCardImage} />
 
@@ -46,22 +56,18 @@ export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
                     <S.GoBackImage source={backImage} />
                 </S.GoBackButton>
 
-                <View
-                    style={{
-                        flexDirection: "row",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                    }}
-                >
+                <S.DetailsView>
                     <View>
                         <S.PokemonName>{pokemon.name}</S.PokemonName>
                         <S.TypeList>
-                            <PokemonTypeBadge type={pokemon.type}/>
-                            <PokemonTypeBadge typeTwo={pokemon.type} />
+                            {pokemon && pokemon.type != undefined &&
+                                pokemon.type.map((item, index) => {
+                                return (<PokemonTypeBadge key={index} type={item}/>)
+                            })}
                         </S.TypeList>
                     </View>
                     <S.PokemonNumber>#{[pokemon.id].toString().padStart(3, "0")}</S.PokemonNumber>
-                </View>
+                </S.DetailsView>
 
                 <S.PokemonImage
                     source={{
@@ -73,19 +79,14 @@ export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
             <S.Content>
                 <S.ScrollView>
                 <S.Paragraph>Status</S.Paragraph>
+                    <PokemonStatus type="HP" value={pokemon.base.HP} style={pokemon.type}/>
+                    <PokemonStatus type="Attack" value={pokemon.base.Attack} style={pokemon.type}/>
+                    <PokemonStatus type="Defense" value={pokemon.base.Defense} style={pokemon.type}/>
+                    <PokemonStatus type="Sp. Atk" value={pokemon.base['Sp. Attack']} style={pokemon.type}/>
+                    <PokemonStatus type="Sp. Def" value={pokemon.base['Sp. Defense']} style={pokemon.type}/>
+                    <PokemonStatus type="Speed" value={pokemon.base.Speed} style={pokemon.type}/>
 
-                    {/* {pokemonData.map((item) => {
-                        <PokemonStatus type="test" value={item.base.HP} />
-                    })} */}
-
-                    <PokemonStatus type="HP" value={45}/>
-                    <PokemonStatus type="Attack" value={49}/>
-                    <PokemonStatus type="Defense" value={49} />
-                    <PokemonStatus type="Sp. Atk" value={65} />
-                    <PokemonStatus type="Sp. Def" value={65} />
-                    <PokemonStatus type="Speed" value={45} />
-
-                    <PokemonStatus type="Total" value={318} />
+                    <PokemonStatus type="Total" value={total} style={pokemon.type}/>
                 </S.ScrollView>
             </S.Content>
         </S.Container>

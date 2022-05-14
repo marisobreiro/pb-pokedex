@@ -9,12 +9,11 @@ import PokemonTypeBadge from "../PokemonTypeBadge";
 type PokemonCardProps = {
     id: number,
     name: string,
-    type: string,
-    typeTwo: string,
+    type: string[],
     handleNavigation: any
 }
 
-export default function PokemonCard({id, name, type, typeTwo, handleNavigation}: PokemonCardProps) {
+export default function PokemonCard({id, name, type, handleNavigation}: PokemonCardProps) {
 
     return (
         <S.Card activeOpacity={0.9} onPress={handleNavigation} type={type[0].toLowerCase()}>
@@ -25,8 +24,9 @@ export default function PokemonCard({id, name, type, typeTwo, handleNavigation}:
                 <S.CardPokemonName>{name}</S.CardPokemonName>
 
                 <S.CardPokemonTypeList>
-                    <PokemonTypeBadge type={type}/>
-                    <PokemonTypeBadge type={typeTwo} />
+                    {type.map((item, index)=> {
+                        return (<PokemonTypeBadge key={index} type={item} />)
+                    })}
                 </S.CardPokemonTypeList>
             </S.CardLeft>
 

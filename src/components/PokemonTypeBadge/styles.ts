@@ -1,8 +1,13 @@
 import styled, { css } from "styled-components/native";
+import theme from "../../global/styles/theme";
 
-export const CardPokemonTypeBadge = styled.View`
+type PokemonBadgeStyleProps = {
+    type: keyof typeof theme.colors.type
+}
+
+export const CardPokemonTypeBadge = styled.View<PokemonBadgeStyleProps>`
     ${(props) => css`
-        background: ${props.theme.colors.type.normal};
+        background: ${props.theme.colors.type[props.type]};
         border-radius: 3px;
         padding: 5.5px 5px;
         margin-top: 5px;

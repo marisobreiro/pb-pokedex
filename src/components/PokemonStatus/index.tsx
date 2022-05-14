@@ -4,10 +4,12 @@ import * as S from "./styles";
 
 type PokemonStatusProps = {
     type: string,
-    value: number
+    value: any,
+    style: string[],
+
 }
 
-export default function PokemonStatus({type, value}: PokemonStatusProps) {
+export default function PokemonStatus({type, value, style}: PokemonStatusProps) {
     return (
         <S.Status>
             <S.Type>{type}</S.Type>
