@@ -2,7 +2,7 @@ import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
   ${(props) => css`
-    background: ${props.theme.colors.backgroundType.normal};
+    background: ${props.theme.colors.backgroundType.grass};
 
     flex: 1;
     position: relative;

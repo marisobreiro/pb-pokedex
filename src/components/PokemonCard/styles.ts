@@ -1,13 +1,18 @@
 import styled, { css } from "styled-components/native";
+import theme from "../../global/styles/theme";
 
-export const Card = styled.TouchableOpacity`
+type PokemonCardProps = {
+    type: keyof typeof theme.colors.backgroundType
+}
+
+export const Card = styled.TouchableOpacity<PokemonCardProps>`
     ${(props) => css`
         flex-direction: row;
         justify-content: space-between;
 
         position: relative;
 
-        background: ${props.theme.colors.backgroundType.normal};
+        background: ${props.theme.colors.backgroundType[props.type]};
         border-radius: 10px;
         padding: 20px;
         margin-top: 30px;

@@ -49,7 +49,7 @@ export const Card = styled.TouchableOpacity`
 
     position: relative;
 
-    background: ${props.theme.colors.backgroundType.normal};
+    background: ${props.theme.colors.backgroundType.grass};
     border-radius: 10px;
     padding: 20px;
     margin-top: 30px;

@@ -3,13 +3,14 @@ import React from "react";
 import * as S from './styles';
 
 type PokemonTypeBadgeProps = {
-    type: string,
+    type?: string,
+    typeTwo?: string,
 }
 
-export default function PokemonTypeBadge ({type}: PokemonTypeBadgeProps) {
+export default function PokemonTypeBadge ({type, typeTwo}: PokemonTypeBadgeProps) {
     return (
         <S.CardPokemonTypeBadge>
-            <S.CardPokemonType>{type}</S.CardPokemonType>
+            <S.CardPokemonType>{type} {typeTwo}</S.CardPokemonType>
         </S.CardPokemonTypeBadge>
     )
 }

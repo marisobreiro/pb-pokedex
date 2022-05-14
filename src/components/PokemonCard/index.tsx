@@ -17,7 +17,7 @@ type PokemonCardProps = {
 export default function PokemonCard({id, name, type, typeTwo, handleNavigation}: PokemonCardProps) {
 
     return (
-        <S.Card activeOpacity={0.9} onPress={handleNavigation}>
+        <S.Card activeOpacity={0.9} onPress={handleNavigation} type={type[0].toLowerCase()}>
             <S.CardLeft>
                 <S.CardDotsBackgroundImage source={dotsCardImage} />
 

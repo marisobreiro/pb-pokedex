@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { FlatList} from "react-native";
-import axios from "axios";
 
 import { NavigationScreenProps } from "../../navigation/types";
 import PokemonCard from "../../components/PokemonCard";
 import pokeballBackgroundImage from "../../global/assets/Pokeball-bg-half.png";
+import { api } from "../../api";
 
 import * as S from "./ListaScreen.styles";
 
 export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
 
-    // Obtendo dados da API
-    const [pokemons, setPokemons] = useState([]);
+    // Tipagem dos dados do Pokemon
+    type PokemonsDataProps = {
+        id: number,
+        name: string,
+        type: any
+    }
 
-    const url: string = 'http://localhost:3300/pokemons';
+    // Obtendo os Pokemons via API - json-server
+    const [pokemons, setPokemons] = useState<PokemonsDataProps[]>([]);
 
     useEffect(() => {
-        const getPokemons = async () => {
-            const response = await axios.get(url);
+        async function getPokemons() {
+            const response = await api.get('pokemons');
             setPokemons(response.data);
         };
         getPokemons();
@@ -26,7 +31,7 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
     // Navegação entre páginas
     const {navigation} : any = props;
 
-    function handleNavigation(id: any): void {
+    function handleNavigation(id: number): void {
         navigation.navigate('DetalhesScreen', {
             id: id
         });
@@ -44,10 +49,12 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
                 initialNumToRender={4}
                 renderItem={({item}) => (
                     <PokemonCard 
+                        key={item.id}
                         id={item.id} 
                         name={item.name}
-                        type={item.type[0]}
-                        typeTwo={item.type[1]}
+                        type={item.type}
+                        // type={item.type[0]}
+                        // typeTwo={item.type[1]}
                         handleNavigation={() => handleNavigation(item.id)}
                         />
                 )}

@@ -15,11 +15,10 @@ export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
 
     const {navigation}: any = props;
     const pokemonId: number = props.route.params.id;
-    const pokemonData: any = props.route.params.item;
 
     const url: string = 'http://localhost:3300/pokemons';
 
-    const [pokemon, setPokemon] = useState([]);
+    const [pokemon, setPokemon] = useState<any>([]);
 
     // Obtendo dados do pokemon selecionado
     useEffect(() => {
@@ -57,8 +56,8 @@ export function DetalhesScreen(props: NavigationScreenProps<"DetalhesScreen">) {
                     <View>
                         <S.PokemonName>{pokemon.name}</S.PokemonName>
                         <S.TypeList>
-                            <PokemonTypeBadge type="Fairy"/>
-                            <PokemonTypeBadge type="Poison" />
+                            <PokemonTypeBadge type={pokemon.type}/>
+                            <PokemonTypeBadge typeTwo={pokemon.type} />
                         </S.TypeList>
                     </View>
                     <S.PokemonNumber>#{[pokemon.id].toString().padStart(3, "0")}</S.PokemonNumber>
