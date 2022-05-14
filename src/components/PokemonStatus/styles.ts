@@ -3,6 +3,7 @@ import theme from "../../global/styles/theme";
 
 type PokemonStatusStyleProps = {
     style: keyof typeof theme.colors.type
+    percentage: number
 }
 
 export const Status = styled.View`
@@ -45,8 +46,15 @@ export const PercentBar = styled.ScrollView`
 export const Percent = styled.ScrollView<PokemonStatusStyleProps>`
   ${(props) => css`
     background: ${props.theme.colors.type[props.style]};
-    width: 50%;
+    width: ${props.percentage}%;
     height: 4px;
     border-radius: 4px;
   `}
 `;
+
+export const IconBadge = styled.TouchableHighlight`
+    ${(props) => css `
+        
+    `}
+`
+

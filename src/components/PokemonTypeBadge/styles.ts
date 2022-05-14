@@ -3,6 +3,7 @@ import theme from "../../global/styles/theme";
 
 type PokemonBadgeStyleProps = {
     type: keyof typeof theme.colors.type
+    image: keyof typeof theme.images
 }
 
 export const CardPokemonTypeBadge = styled.View<PokemonBadgeStyleProps>`
@@ -23,3 +24,4 @@ export const CardPokemonType = styled.Text`
         font-weight: 400;
     `}
 `;
+

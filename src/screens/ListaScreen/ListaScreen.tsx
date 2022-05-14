@@ -3,6 +3,7 @@ import { FlatList} from "react-native";
 
 import { NavigationScreenProps } from "../../navigation/types";
 import PokemonCard from "../../components/PokemonCard";
+import { PokemonListHeader } from "../../components/PokemonList/Header";
 import { api } from "../../services/api";
 
 import * as S from "./ListaScreen.styles";
@@ -32,24 +33,22 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
 
     return (
         <S.Container>
-            <S.ContainerBackgroundImage source={require('../../global/assets/Pokeball-bg-half.png')} />
-
-            <S.Title>Pokédex</S.Title>
-            <S.Paragraph>Encontre todos os pokémons em um só lugar.</S.Paragraph>
-
-            <FlatList 
-                data={pokemons}
-                initialNumToRender={4}
-                renderItem={({item}) => (
-                    <PokemonCard 
-                        key={item.id}
-                        id={item.id} 
-                        name={item.name}
-                        type={item.type}
-                        handleNavigation={() => handleNavigation(item.id)}
-                        />
-                )}
-            />
+            <S.Content>
+                <FlatList 
+                    ListHeaderComponent={PokemonListHeader}
+                    data={pokemons}
+                    initialNumToRender={8}
+                    renderItem={({item}) => (
+                        <PokemonCard 
+                            key={item.id}
+                            id={item.id} 
+                            name={item.name}
+                            type={item.type}
+                            handleNavigation={() => handleNavigation(item.id)}
+                            />
+                    )}
+                />
+            </S.Content>
         </S.Container>
     );
 }
