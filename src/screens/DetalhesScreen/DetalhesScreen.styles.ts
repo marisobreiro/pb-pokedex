@@ -1,13 +1,13 @@
 import styled, { css } from "styled-components/native";
 import theme from "../../global/styles/theme";
 
-type PokemonDetailsStylesProps = {
+type PokemonContainerProps = {
     type: keyof typeof theme.colors.backgroundType
 }
 
-export const Container = styled.View`
+export const Container = styled.View<PokemonContainerProps>`
   ${(props) => css`
-    background: ${props.theme.colors.backgroundType.grass};
+    background: ${props.theme.colors.backgroundType[props.type]};
 
     flex: 1;
     position: relative;
@@ -129,9 +129,9 @@ export const Content = styled.View`
 
 export const ScrollView = styled.ScrollView``;
 
-export const Paragraph = styled.Text`
+export const Paragraph = styled.Text<PokemonContainerProps>`
   ${(props) => css`
-    color: ${props.theme.colors.type.normal};
+    color: ${props.theme.colors.type[props.type]};
     font-size: 24px;
     margin-top: 10px;
     font-weight: 700;

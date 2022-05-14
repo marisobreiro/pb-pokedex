@@ -1,24 +1,16 @@
 import React from "react";
 
-import pokeballCardImage from "../../global/assets/Pokeball.png";
-import dotsCardImage from "../../global/assets/Pattern.png";
-
-import * as S from "./styles";
+import { PokemonCardProps } from "../../@types";
 import PokemonTypeBadge from "../PokemonTypeBadge";
 
-type PokemonCardProps = {
-    id: number,
-    name: string,
-    type: string[],
-    handleNavigation: any
-}
+import * as S from "./styles";
 
 export default function PokemonCard({id, name, type, handleNavigation}: PokemonCardProps) {
 
     return (
         <S.Card activeOpacity={0.9} onPress={handleNavigation} type={type[0].toLowerCase()}>
             <S.CardLeft>
-                <S.CardDotsBackgroundImage source={dotsCardImage} />
+                <S.CardDotsBackgroundImage source={require('../../global/assets/Pattern.png')} />
 
                 <S.CardPokemonNumber>#{id.toString().padStart(3, "0")}</S.CardPokemonNumber>
                 <S.CardPokemonName>{name}</S.CardPokemonName>
@@ -31,7 +23,7 @@ export default function PokemonCard({id, name, type, handleNavigation}: PokemonC
             </S.CardLeft>
 
             <S.CardRigth>
-                <S.CardPokemonBackgroundImage source={pokeballCardImage} />
+                <S.CardPokemonBackgroundImage source={require('../../global/assets/Pokeball.png')} />
 
                 <S.CardPokemonImage
                     source={{

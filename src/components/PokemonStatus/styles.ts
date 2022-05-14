@@ -44,7 +44,7 @@ export const PercentBar = styled.ScrollView`
 
 export const Percent = styled.ScrollView<PokemonStatusStyleProps>`
   ${(props) => css`
-    background: ${props.theme.colors.type.normal};
+    background: ${props.theme.colors.type[props.style]};
     width: 50%;
     height: 4px;
     border-radius: 4px;

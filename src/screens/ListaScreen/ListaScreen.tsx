@@ -3,7 +3,6 @@ import { FlatList} from "react-native";
 
 import { NavigationScreenProps } from "../../navigation/types";
 import PokemonCard from "../../components/PokemonCard";
-import pokeballBackgroundImage from "../../global/assets/Pokeball-bg-half.png";
 import { api } from "../../services/api";
 
 import * as S from "./ListaScreen.styles";
@@ -33,7 +32,7 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
 
     return (
         <S.Container>
-            <S.ContainerBackgroundImage source={pokeballBackgroundImage} />
+            <S.ContainerBackgroundImage source={require('../../global/assets/Pokeball-bg-half.png')} />
 
             <S.Title>Pokédex</S.Title>
             <S.Paragraph>Encontre todos os pokémons em um só lugar.</S.Paragraph>

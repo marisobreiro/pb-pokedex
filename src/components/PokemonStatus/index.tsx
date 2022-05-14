@@ -16,7 +16,7 @@ export default function PokemonStatus({type, value, style}: PokemonStatusProps) 
             <S.Value>{value}</S.Value>
 
             <S.PercentBar>
-                <S.Percent />
+                <S.Percent style={style[0].toLowerCase()}/>
             </S.PercentBar>
         </S.Status>
     )
