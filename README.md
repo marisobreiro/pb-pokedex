@@ -123,3 +123,8 @@ Feito com ❤️ por Bruno Henrique Saibert 👋 Entre em contato!
 ## [](https://github.com/BrunoSaibert/pokedex-react-native#--licença) 📝 Licença
 
 Este projeto esta sobe a licença MIT.
+
+![Bug](https://user-images.githubusercontent.com/91204232/168445153-fa7bb960-c68d-4e0b-a053-7defd4601c70.svg)
+![Dragon](https://user-images.githubusercontent.com/91204232/168445158-5eed023d-df60-4e60-b25e-4ff440ae5c3e.svg)
+
+
