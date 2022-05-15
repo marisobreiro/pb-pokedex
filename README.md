@@ -1,127 +1,73 @@
-<p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/BrunoSaibert/pokedex-react-native?color=%2304D361&style=for-the-badge">
+# Pokedex
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/BrunoSaibert/pokedex-react-native?style=for-the-badge">
+## 💻 Sobre
 
-  <a href="https://github.com/BrunoSaibert/pokedex-react-native/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/BrunoSaibert/pokedex-react-native?style=for-the-badge">
-  </a>
+Repositório do projeto "Pokedéx" do Bootcamp "Reprograma" do Paraná Banco. O projeto tem como objetivo listar os Pokemons por ordem de seu PokeID, além disso, é possível obter mais detalhes sobre cada como: Tipo, HP, Attack, Defense, Sp. Attack, Sp. Defense e Speed.
 
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge">
-   <a href="https://github.com/BrunoSaibert/pokedex-react-native/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/BrunoSaibert/pokedex-react-native?style=for-the-badge">
-  </a>
+Este projeto foi desenvolvido com
 
-  <a href="https://brunosaibert.com.br/">
-    <img alt="Feito por Bruno Saibert" src="https://img.shields.io/badge/feito%20por-Bruno%20Saibert-%231b9?style=for-the-badge">
-  </a>
+&nbsp;![React Native](https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+&nbsp;![Expo](https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37)
 
-</p>
-<h1 align="center">
-    <img alt="pokedex-react-native" title="#pokedex-react-native" src="https://raw.githubusercontent.com/BrunoSaibert/pokedex-react-native/main/assets/icon.png" width="200px" />
-</h1>
+## 🧗‍♀️ Desafio
 
-<h4 align="center">
-	🏁  Pokedex 🏁
-</h4>
+Solicitado
 
-<p align="center">
- <a href="#--sobre-o-projeto">Sobre</a> •
- <a href="#-%EF%B8%8F-funcionalidades">Funcionalidades</a> •
- <a href="#--como-executar-o-projeto">Como executar</a> •
- <a href="#--layout">Layout</a> •
- <a href="#--tecnologias">Tecnologias</a> •
- <a href="#--autor">Autor</a> •
- <a href="#--licença">Licença</a>
-</p>
+- [x] Componentização
+- [x] FlatList component
+- [x] Navegação entre páginas - Passar o PokeID como parâmetro da rota ListaScreen > DetalhesScreen
+- [x] Tornar a página DetalhesScreen dinâmica
+- [x] Plugar backend com API fake - json-server
+- [x] Acessibilidade - Tratar o tamanho do texto 
 
-![](https://raw.githubusercontent.com/BrunoSaibert/pokedex-react-native/main/assets/Cover.png)
+Extras
 
-## [](https://github.com/BrunoSaibert/pokedex-react-native#--sobre-o-projeto) 💻 Sobre o projeto
+- [x] Adição dos icons nos Badges Pokemons
+- [x] Cores da tela DetalhesScreen dinâmicas de acordo com o Pokemon Type
+- [x] Percentbar da tela DetalhesScreen dinâmico
 
-O aplicativo Pokedex tem a finalidade de listar e informar detalhes dos pokemons.
+## Stack
 
-O projeto foi desenvolvido para o programa de estágio **Reprograma** do [Paraná Banco](https://www.paranabanco.com.br/), com o objetivo de criar uma aplicação mobile com React Native.
-
-Para o desenvolvimento foi utilizado **React Native**, **Expo** e **TypeScript**.
-
----
-
-## [](https://github.com/BrunoSaibert/pokedex-react-native#-%EF%B8%8F-funcionalidades) ⚙️ Funcionalidades
-
-- Listar pokemons
-- Consultar os dados de cada pokemon
-
----
-
-## [](https://github.com/BrunoSaibert/pokedex-react-native#--como-executar-o-projeto) 🚀 Como executar o projeto
-
-### Pré-requisitos
-
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
-Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/).
-
-#### 🧭 Rodando a aplicação
-
-```bash
-
-# Clone este repositório
-$ git clone git@github.com:BrunoSaibert/pokedex-react-native.git
-
-# Acesse a pasta do projeto no seu terminal/cmd
-$ cd pokedex-react-native
-
-# Instale as dependências
-$ npm install
-# ou
-$ yarn
-
-# Execute a aplicação
-$ expo start
-
-```
-
----
-
-## [](https://github.com/BrunoSaibert/pokedex-react-native#--layout) 🔖 Layout
-
-Você pode visualizar o layout de referencia do projeto através [desse link](<https://www.figma.com/file/ovbsla2hdcPQIuoJSRzKGd/Pok%C3%A9dex-(Copy)?node-id=326%3A64>). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
-
----
-
-## [](https://github.com/BrunoSaibert/pokedex-react-native#--tecnologias) 🛠 Tecnologias
-
-As seguintes ferramentas foram usadas na construção do projeto:
+Projeto desenvolvido com:
 
 - React Native
-- Typescript
 - Expo
+- Typescript
 - Lottie
 
-> Veja o arquivo para mais detalhes [package.json](https://github.com/BrunoSaibert/pokedex-react-native/blob/master/web/package.json)
+## 🔨 Como inicializar?
+Realize o clone deste repositório na pasta de sua preferência em seu terminal
 
----
-
-## [](https://github.com/BrunoSaibert/pokedex-react-native#--autor) 👨‍🚀 Autor
-
-<a href="https://brunosaibert.com.br/">
- <img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/40339324?s=460&u=4f5a7b83aa4e018b4eccbeaa1f6a6b8b04e0e4b7&v=4" width="100px;" alt="Bruno Henrique Saibert"/>
- <br />
- <sub><b>Bruno Henrique Saibert</b></sub></a>
- <br />
-
-Feito com ❤️ por Bruno Henrique Saibert 👋 Entre em contato!
-
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/brunohenriquesaibert/)](https://www.linkedin.com/in/brunohenriquesaibert/)
-[![Twitter Badge](https://img.shields.io/badge/-Twitter-1ca0f1?style=for-the-badge&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/bh_saibert)](https://twitter.com/bh_saibert)
-[![Whatsapp Badge](https://img.shields.io/badge/-Whatsapp-4CA143?style=for-the-badge&labelColor=4CA143&logo=whatsapp&logoColor=white&link=https://api.whatsapp.com/send?phone=5541996758098&text=Olá!)](https://api.whatsapp.com/send?phone=5541996758098&text=Olá!)
-[![Gmail Badge](https://img.shields.io/badge/-Gmail-c14438?style=for-the-badge&logo=Gmail&logoColor=white&link=mailto:brunosaibert@gmail.com)](mailto:brunosaibert@gmail.com)
-
----
-
-## [](https://github.com/BrunoSaibert/pokedex-react-native#--licença) 📝 Licença
-
-Este projeto esta sobe a licença MIT.
+`git clone git@github.com:marisobreiro/palpet.git`
 
 
+Acesse a pasta do projeto via terminal e inicialize o backend da aplicação
+
+`npm run backend`
+
+
+Em seguida, em outro terminal, inicialize o fronend da aplicação
+
+`expo start`
+
+
+Para simular o dispositivo iOS, inicie o simulador do xCode no terminal do expo
+
+`i`
+
+
+Para simular o dispositivo Android, inicie o simulador do Android Studio no terminal do expo
+
+`a`
+
+
+## Layout Final
+ <p> 
+	
+  <img src="https://user-images.githubusercontent.com/91204232/168486793-60f60bc2-e55a-4874-a4c9-62014ed719aa.png" width="200"/>
+  <img src="https://user-images.githubusercontent.com/91204232/168486580-2286113b-ab4f-4cd7-a937-2bd91a2057e1.png" width="200"/>
+  <img src="https://user-images.githubusercontent.com/91204232/168486713-d5d1e927-5f31-4caa-b6a1-11626f1623d8.png" width="200"/>
+  </p>
+ 
+
+###### Projeto inicial feito por [Bruno Saibert](https://github.com/BrunoSaibert)
