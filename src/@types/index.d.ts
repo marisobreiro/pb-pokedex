@@ -28,9 +28,8 @@ export type PokemonStatusProps = {
     type: string,
     value: any,
     style: any,
-    percentage: number
 }
 
 export type PokemonTypeBadgeProps = {
-    type: string,
+    type: string
 }
