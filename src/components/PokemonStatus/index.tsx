@@ -11,7 +11,7 @@ export default function PokemonStatus({type, value, style}: PokemonStatusProps) 
             <S.Value maxFontSizeMultiplier={1.25}>{value}</S.Value>
 
             <S.PercentBar>
-                <S.Percent percent={style[0].toLowerCase()} percentage={(value)}/>
+                <S.Percent percent={style[0].toLowerCase()} percentage={(value != undefined ? value : 0)}/>
             </S.PercentBar>
         </S.Status>
     )

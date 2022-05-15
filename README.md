@@ -62,11 +62,10 @@ Para simular o dispositivo Android, inicie o simulador do Android Studio no term
 
 
 ## Layout Final
- <p> 
-	
-  <img src="https://user-images.githubusercontent.com/91204232/168486793-60f60bc2-e55a-4874-a4c9-62014ed719aa.png" width="200"/>
-  <img src="https://user-images.githubusercontent.com/91204232/168486580-2286113b-ab4f-4cd7-a937-2bd91a2057e1.png" width="200"/>
-  <img src="https://user-images.githubusercontent.com/91204232/168486713-d5d1e927-5f31-4caa-b6a1-11626f1623d8.png" width="200"/>
+ <p> 	
+    <img src="https://user-images.githubusercontent.com/91204232/168486793-60f60bc2-e55a-4874-a4c9-62014ed719aa.png" width="200"/>
+    <img src="https://user-images.githubusercontent.com/91204232/168486580-2286113b-ab4f-4cd7-a937-2bd91a2057e1.png" width="200"/>
+    <img src="https://user-images.githubusercontent.com/91204232/168486713-d5d1e927-5f31-4caa-b6a1-11626f1623d8.png" width="200"/>
   </p>
  
 

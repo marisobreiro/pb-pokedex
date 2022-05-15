@@ -9,6 +9,7 @@ import PokemonCard from "../../components/PokemonCard";
 import { PokemonListHeader } from "../../components/PokemonList/Header";
 
 import * as S from "./ListaScreen.styles";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
 
@@ -31,24 +32,23 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
         });
     }
 
+    const renderPokemonCard = ({item}) => 
+        <PokemonCard 
+            key={item.id} 
+            id={item.id} 
+            name={item.name} 
+            type={item.type} 
+            handleNavigation={() => handleNavigation(item.id)}/>
+
     return (
         <S.Container>
-            <S.Content>
-                <FlatList 
-                    ListHeaderComponent={PokemonListHeader}
-                    data={pokemons}
-                    initialNumToRender={8}
-                    renderItem={({item}) => (
-                        <PokemonCard 
-                            key={item.id}
-                            id={item.id} 
-                            name={item.name}
-                            type={item.type}
-                            handleNavigation={() => handleNavigation(item.id)}
-                            />
-                    )}
-                />
-            </S.Content>
+                <SafeAreaView>
+                    <FlatList 
+                        ListHeaderComponent={PokemonListHeader}
+                        data={pokemons}
+                        initialNumToRender={8}
+                        renderItem={renderPokemonCard} />
+                </SafeAreaView>
         </S.Container>
     );
 }

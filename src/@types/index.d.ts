@@ -33,5 +33,4 @@ export type PokemonStatusProps = {
 
 export type PokemonTypeBadgeProps = {
     type: string,
-    key: any
 }

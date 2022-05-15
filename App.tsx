@@ -9,7 +9,7 @@ export default function App() {
     return (
     <ThemeProvider theme={theme}>
       <StatusBar
-        style="auto"
+        style="light"
         backgroundColor={theme.colors.background.primary}
       />
         <NavigationContainer>
