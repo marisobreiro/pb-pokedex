@@ -1,23 +1,17 @@
 import React from "react";
 
+import { PokemonStatusProps } from "../../@types";
+
 import * as S from "./styles";
-
-type PokemonStatusProps = {
-    type: string,
-    value: any,
-    style: string[],
-
-}
 
 export default function PokemonStatus({type, value, style}: PokemonStatusProps) {
     return (
         <S.Status>
-            <S.Type>{type}</S.Type>
-            <S.Value>{value}</S.Value>
+            <S.Type maxFontSizeMultiplier={1.25}>{type}</S.Type>
+            <S.Value maxFontSizeMultiplier={1.25}>{value}</S.Value>
 
             <S.PercentBar>
-                {/* <S.IconBadge /> */}
-                <S.Percent style={style[0].toLowerCase()} percentage={value}/>
+                <S.Percent percent={style[0].toLowerCase()} percentage={(value)}/>
             </S.PercentBar>
         </S.Status>
     )

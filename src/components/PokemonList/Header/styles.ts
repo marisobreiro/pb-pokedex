@@ -5,12 +5,7 @@ export const ContainerBackgroundImage = styled.ImageBackground`
   height: 200px;
 
   position: absolute;
-  top: -80px;
-`;
-
-export const Content = styled.View`
-  margin-bottom: 50px;
-  padding: 0 20px;
+  top: 0px;
 `;
 
 export const Title = styled.Text`

@@ -23,3 +23,15 @@ export type PokemonCardProps = {
     type: string[],
     handleNavigation: any
 }
+
+export type PokemonStatusProps = {
+    type: string,
+    value: any,
+    style: any,
+    percentage: number
+}
+
+export type PokemonTypeBadgeProps = {
+    type: string,
+    key: any
+}

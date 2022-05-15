@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { FlatList} from "react-native";
 
+import { api } from "../../services/api";
+import { PokemonsDataProps } from "../../@types";
 import { NavigationScreenProps } from "../../navigation/types";
+
 import PokemonCard from "../../components/PokemonCard";
 import { PokemonListHeader } from "../../components/PokemonList/Header";
-import { api } from "../../services/api";
 
 import * as S from "./ListaScreen.styles";
-import { PokemonsDataProps } from "../../@types";
 
 export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
 
+    const {navigation} : any = props;
     const [pokemons, setPokemons] = useState<PokemonsDataProps[]>([]);
 
      // Obtendo os Pokemons via API - json-serve
@@ -23,8 +25,6 @@ export function ListaScreen(props: NavigationScreenProps<"ListaScreen">) {
     }, []);
 
     // Navegação entre páginas - Go to Detalhes Screen
-    const {navigation} : any = props;
-
     function handleNavigation(id: number): void {
         navigation.navigate('DetalhesScreen', {
             id: id

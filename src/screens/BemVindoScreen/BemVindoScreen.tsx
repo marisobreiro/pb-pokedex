@@ -20,12 +20,12 @@ export function BemVindoScreen(props: NavigationScreenProps<"BemVindoScreen">) {
                 <S.WrapperAnimation>
                     <AnimatedLottieView autoPlay source={pokebolaAnimation} loop />
                 </S.WrapperAnimation>
-                <S.Title>Bem vindo</S.Title>
-                <S.Paragraph>Encontre todos os pokémons em um só lugar</S.Paragraph>
+                <S.Title maxFontSizeMultiplier={1.25}>Bem vindo</S.Title>
+                <S.Paragraph maxFontSizeMultiplier={1.25}>Encontre todos os pokémons em um só lugar</S.Paragraph>
             </S.Content>
 
             <S.Button activeOpacity={0.7} onPress={handleNavigation}>
-                <S.ButtonText>Entrar</S.ButtonText>
+                <S.ButtonText maxFontSizeMultiplier={1.25}>Entrar</S.ButtonText>
         </S.Button>
         </S.Container>
     );

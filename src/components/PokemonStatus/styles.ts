@@ -2,8 +2,8 @@ import styled, { css } from "styled-components/native";
 import theme from "../../global/styles/theme";
 
 type PokemonStatusStyleProps = {
-    style: keyof typeof theme.colors.type
-    percentage: number
+    percent: keyof typeof theme.colors.type,
+    percentage: any,
 }
 
 export const Status = styled.View`
@@ -45,16 +45,11 @@ export const PercentBar = styled.ScrollView`
 
 export const Percent = styled.ScrollView<PokemonStatusStyleProps>`
   ${(props) => css`
-    background: ${props.theme.colors.type[props.style]};
+    background: ${props.theme.colors.type[props.percent]};
     width: ${props.percentage}%;
     height: 4px;
     border-radius: 4px;
   `}
 `;
 
-export const IconBadge = styled.TouchableHighlight`
-    ${(props) => css `
-        
-    `}
-`
 

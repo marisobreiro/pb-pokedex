@@ -1,20 +1,15 @@
 import React from "react";
-import { Image } from "react-native";
+
+import { PokemonTypeBadgeProps } from "../../@types";
+import { icons } from "../../global/icons";
 
 import * as S from './styles';
 
-type PokemonTypeBadgeProps = {
-    type: string,
-    key: any
-}
-
 export default function PokemonTypeBadge ({type, key}: PokemonTypeBadgeProps) {
-
-    let icon = type
-
     return (
-        <S.CardPokemonTypeBadge key={key} type={type.toLowerCase()}>
-            <S.CardPokemonType>{type}</S.CardPokemonType>
+        <S.CardPokemonTypeBadge index={key} type={type.toLowerCase()}>
+            <S.IconBadge source={icons[type]}/>
+            <S.CardPokemonType maxFontSizeMultiplier={1.25}>{type}</S.CardPokemonType>
         </S.CardPokemonTypeBadge>
     )
 }
